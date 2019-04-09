@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets;
 using UnityEngine;
 
 public class PlayerComponent : MonoBehaviour
@@ -62,5 +63,21 @@ public class PlayerComponent : MonoBehaviour
 
 
         m_CurrentDelay -= l_DeltaTime;
+    }
+
+
+    public void OnTriggerEnter(Collider i_Collider)
+    {
+        if (i_Collider.CompareTag("Bottle"))
+        {
+            // You Win
+            Destroy(this);
+            GameManager.Instance.TriggerWin();
+
+        }
+        else
+        {
+            GameManager.Instance.RestartGame();
+        }
     }
 }

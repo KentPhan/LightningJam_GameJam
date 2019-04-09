@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3983397775531842355}
   - component: {fileID: 3983397775531842365}
   - component: {fileID: 3983397775531842354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightningTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3983397775531842352}
   m_LocalRotation: {x: -0.99999225, y: -0, z: -0, w: -0.0039468803}
-  m_LocalPosition: {x: 0, y: 0.05, z: 5.97}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3983397776033816096}
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 20
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -659,7 +659,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.1
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -918,7 +918,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2951,7 +2951,7 @@ ParticleSystem:
     positionAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4709,9 +4709,9 @@ GameObject:
   - component: {fileID: 3983397776033816096}
   - component: {fileID: 3983397776033816097}
   - component: {fileID: 3983397776033816099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerPrefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4745,9 +4745,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa87e9da62258841a9e2b0f8d61d0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OffsetDistanceJump: 10
-  m_ForwardDistanceJump: 10
-  m_TravelDelay: 2
+  m_OffsetDistanceJump: 15
+  m_ForwardDistanceJump: 50
+  m_TravelDelay: 0.5
 --- !u!54 &3983397776033816099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4763,7 +4763,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &3983397776413234060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,8 +4775,8 @@ GameObject:
   - component: {fileID: 3983397776413234063}
   - component: {fileID: 3983397776413234056}
   - component: {fileID: 3983397776413234057}
-  - component: {fileID: 3983397776413234062}
-  m_Layer: 0
+  - component: {fileID: 28360888}
+  m_Layer: 9
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4792,7 +4792,7 @@ Transform:
   m_GameObject: {fileID: 3983397776413234060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.660786, y: 4.660786, z: 4.660786}
   m_Children: []
   m_Father: {fileID: 3983397776033816096}
   m_RootOrder: 0
@@ -4812,7 +4812,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3983397776413234060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4842,18 +4842,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3983397776413234062
-BoxCollider:
+--- !u!135 &28360888
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3983397776413234060}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3983397776743973179
 GameObject:
@@ -4864,12 +4864,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3983397776743973156}
-  - component: {fileID: 3983397776743973157}
   - component: {fileID: 3983397776743973178}
-  m_Layer: 0
-  m_Name: Main Camera
+  m_Layer: 9
+  m_Name: CameraPath
   m_TagString: MainCamera
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4880,55 +4879,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3983397776743973179}
-  m_LocalRotation: {x: 0.21405473, y: -0, z: -0, w: 0.9768217}
-  m_LocalPosition: {x: 0, y: 5.96, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -41.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3983397776033816096}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 24.720001, y: 0, z: 0}
---- !u!20 &3983397776743973157
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3983397776743973179}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!81 &3983397776743973178
 AudioListener:
   m_ObjectHideFlags: 0
