@@ -22,6 +22,7 @@ namespace Assets
 
         private GameStates m_CurrentState;
         private PlayerComponent m_CurrentPlayer;
+        private AudioSource m_AudioSource;
 
         public static GameManager Instance;
 
@@ -29,6 +30,7 @@ namespace Assets
         {
             Instance = this;
             m_WinScreen.gameObject.SetActive(false);
+            m_AudioSource = GetComponent<AudioSource>();
         }
 
         // Start is called before the first frame update
@@ -63,6 +65,7 @@ namespace Assets
                         m_CMCamera.Follow = m_CurrentPlayer.transform;
 
                         m_StartScreen.gameObject.SetActive(false);
+                        m_AudioSource.Play();
                         return;
                     }
                     break;
