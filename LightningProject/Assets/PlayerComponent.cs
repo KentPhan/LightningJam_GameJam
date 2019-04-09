@@ -7,15 +7,20 @@ public class PlayerComponent : MonoBehaviour
 {
     [SerializeField] private float m_OffsetDistanceJump = 10.0f;
     [SerializeField] private float m_ForwardDistanceJump = 10.0f;
-    [SerializeField] private float m_TravelDelay = 3.0f;
+    [SerializeField] private float m_TravelDelayTime = 3.0f;
+    [Range(0.1f, 1.0f)]
+    [SerializeField] private float m_TravelDelayRatioReduction = 0.9f;
+    [SerializeField] private float m_TravelDelayReductionTime = 5.0f;
 
 
+    private float m_CurrentTravelDelayTimer;
     private float m_CurrentDelay;
     private Rigidbody m_RigidBody;
 
 
     private void Awake()
     {
+        m_CurrentTravelDelayTimer = m_TravelDelayReductionTime;
         m_RigidBody = GetComponent<Rigidbody>();
     }
 
@@ -57,12 +62,21 @@ public class PlayerComponent : MonoBehaviour
             }
 
             m_RigidBody.MovePosition(l_NewPosition);
-            m_CurrentDelay = m_TravelDelay;
+            m_CurrentDelay = m_TravelDelayTime;
         }
 
-
-
         m_CurrentDelay -= l_DeltaTime;
+
+        // Adjusting Travel Delay
+
+        if (m_CurrentTravelDelayTimer <= 0)
+        {
+
+            m_TravelDelayTime *= m_TravelDelayRatioReduction;
+            m_CurrentTravelDelayTimer = m_TravelDelayReductionTime;
+        }
+
+        m_CurrentTravelDelayTimer -= l_DeltaTime;
     }
 
 

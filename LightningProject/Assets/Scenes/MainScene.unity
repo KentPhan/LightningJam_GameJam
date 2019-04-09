@@ -1482,7 +1482,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1329531500}
   - component: {fileID: 1329531499}
-  - component: {fileID: 1329531498}
   - component: {fileID: 1329531497}
   m_Layer: 0
   m_Name: Camera
@@ -1528,14 +1527,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!81 &1329531498
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329531496}
-  m_Enabled: 1
 --- !u!20 &1329531499
 Camera:
   m_ObjectHideFlags: 0
